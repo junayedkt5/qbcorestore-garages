@@ -37,6 +37,6 @@ Why Choose This Garage System?
 	•	Polished & Professional: Developed by QBCore Store, trusted since 2020.
 	•	Performance-Oriented: No unnecessary lag or bloated features.
 	•	Seamless Integration: Works perfectly with QBCore Framework.
-	•	Enhanced Roleplay: A visually appealing garage system for a better RP experience.
+	•	Enhanced Roleplay: A visually appealing garage system for a better RP experience..
 
 💾 Download Now & Upgrade Your FiveM Server with the Best QBCore Garages System! 🚀
