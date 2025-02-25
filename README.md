@@ -3,7 +3,7 @@ FREE RELEASE AFTER 200 STARS ON THAT REPO. LETS GO!!!
 ![image](https://github.com/user-attachments/assets/37a011f9-31ff-4797-b429-bcc68f735916)
 
 
-QBCore Advanced Garages System
+QBCore Advanced Garages System.
 
 🚗 New Garages System for QBCore Framework - By QBCore Store since 2020.
 This is the ultimate garage system for FiveM QBCore servers, offering a modern UI, improved functionality, and seamless user experience. With a beautifully designed tablet-style interface, players can view, manage, and transfer their vehicles effortlessly.
