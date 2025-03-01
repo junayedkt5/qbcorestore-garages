@@ -39,4 +39,4 @@ Why Choose This Garage System?
 	•	Seamless Integration: Works perfectly with QBCore Framework.
 	•	Enhanced Roleplay: A visually appealing garage system for a better RP experience..
 
-💾 Download Now & Upgrade Your FiveM Server with the Best QBCore Garages System! 🚀
+💾 Download Now & Upgrade Your FiveM Server with the Best QBCore Garages System! 🚀.
