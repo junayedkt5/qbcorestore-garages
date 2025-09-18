@@ -1,42 +1,64 @@
-FREE RELEASE AFTER 200 STARS ON THAT REPO. LETS GO!!!
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Spin & Win Game</title>
+  <style>
+    body { text-align:center; font-family:Arial; background:#f0f0f0; }
+    #wheelCanvas { margin:20px auto; display:block; }
+    button { padding:10px 20px; font-size:18px; cursor:pointer; background:#28a745; color:white; border:none; border-radius:8px; }
+    #result { font-weight:bold; font-size:18px; margin-top:10px; }
+  </style>
+</head>
+<body>
+  <h2>🎯 Spin & Win 🎯</h2>
 
-![image](https://github.com/user-attachments/assets/37a011f9-31ff-4797-b429-bcc68f735916)
+  <!-- PopUnder Ad -->
+  <script type="text/javascript" src="//data156.click/f9352e31b31d83333899/41d6fe59db/?placementName=default"></script>
 
+  <canvas id="wheelCanvas" width="300" height="300"></canvas>
+  <button onclick="spinWheel()">SPIN</button>
+  <p id="result"></p>
 
-QBCore Advanced Garages System.
+  <script>
+    const canvas=document.getElementById("wheelCanvas"),ctx=canvas.getContext("2d");
+    const options=["💰 10 Coins","❌ Try Again","⭐ Bonus","🎁 Gift","🔥 Jackpot","💎 50 Coins"];
+    const colors=["#f54242","#42f554","#4287f5","#f5a142","#d142f5","#42f5e6"];
+    let startAngle=0,arc=Math.PI/(options.length/2),spinTimeout=null,spinAngleStart=10,spinTime=0,spinTimeTotal=0;
 
-🚗 New Garages System for QBCore Framework - By QBCore Store since 2020.
-This is the ultimate garage system for FiveM QBCore servers, offering a modern UI, improved functionality, and seamless user experience. With a beautifully designed tablet-style interface, players can view, manage, and transfer their vehicles effortlessly.
+    function drawRouletteWheel(){
+      ctx.clearRect(0,0,300,300);
+      for(let i=0;i<options.length;i++){
+        let angle=startAngle+i*arc;
+        ctx.fillStyle=colors[i];
+        ctx.beginPath();
+        ctx.arc(150,150,150,angle,angle+arc,false);
+        ctx.arc(150,150,0,angle+arc,angle,true);
+        ctx.fill();
+        ctx.save();
+        ctx.fillStyle="white";
+        ctx.translate(150+Math.cos(angle+arc/2)*100,150+Math.sin(angle+arc/2)*100);
+        ctx.rotate(angle+arc/2+Math.PI/2);
+        ctx.fillText(options[i],-ctx.measureText(options[i]).width/2,0);
+        ctx.restore();
+      }
+    }
 
-This system enhances roleplay immersion while maintaining optimal performance. Perfect for serious RP servers looking for a next-gen garage system.
+    function rotateWheel(){spinTime+=30;if(spinTime>=spinTimeTotal){stopRotateWheel();return;}
+      let spinAngle=spinAngleStart-easeOut(spinTime,0,spinAngleStart,spinTimeTotal);
+      startAngle+=(spinAngle*Math.PI/180);
+      drawRouletteWheel();
+      spinTimeout=setTimeout(rotateWheel,30);
+    }
 
-Features:
+    function stopRotateWheel(){clearTimeout(spinTimeout);
+      let degrees=startAngle*180/Math.PI+90,arcd=arc*180/Math.PI,index=Math.floor((360-degrees%360)/arcd);
+      document.getElementById("result").innerHTML="Result: "+options[index];
+    }
 
-✅ Modern UI Design – A sleek, tablet-style interface with vibrant colors and smooth animations.
-✅ Optimized Performance – Runs at incredibly low resmon for maximum efficiency.
-✅ Garage Management – Players can store, view, and manage their vehicles with ease.
-✅ Vehicle Status Display – Shows real-time fuel level, engine health, and body condition of vehicles.
-✅ Garage Locations – Displays the current garage location where the vehicle is stored.
-✅ Three Interactive Options:
-	•	Drive Vehicle – Spawn and take out your vehicle.
-	•	Swap Garages – Move your vehicle to a different garage.
-	•	Transfer Vehicle – Transfer ownership of the vehicle.
-✅ Live Vehicle Preview – Displays a high-quality image of the vehicle for easy identification.
-✅ Garage Name & Details – Clear information about where the vehicle is stored.
-✅ Dynamic Data Updating – Real-time updates on vehicle status and storage locations.
-✅ Customizable Settings – Fully configurable via Config.lua for server owners.
-✅ Responsive UI – Works on different screen resolutions for an immersive experience.
-
-Installation & Configuration:
-	1.	Download the script and place it in your FiveM resources folder.
-	2.	Ensure dependencies are installed for proper integration with QBCore.
-	3.	Modify Config.lua to set your garage locations and preferences.
-	4.	Start the resource and enjoy your next-gen QBCore Garages system!
-
-Why Choose This Garage System?
-	•	Polished & Professional: Developed by QBCore Store, trusted since 2020.
-	•	Performance-Oriented: No unnecessary lag or bloated features.
-	•	Seamless Integration: Works perfectly with QBCore Framework.
-	•	Enhanced Roleplay: A visually appealing garage system for a better RP experience..
-
-💾 Download Now & Upgrade Your FiveM Server with the Best QBCore Garages System! 🚀.
+    function easeOut(t,b,c,d){let ts=(t/=d)*t,tc=ts*t;return b+c*(tc-3*ts+3*t);}
+    function spinWheel(){spinAngleStart=Math.random()*10+10;spinTime=0;spinTimeTotal=Math.random()*3000+4000;rotateWheel();}
+    drawRouletteWheel();
+  </script>
+</body>
+</html>
